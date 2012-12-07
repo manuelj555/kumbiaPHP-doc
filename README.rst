@@ -37,5 +37,6 @@ Sistemas de ayuda y soporte
 
 Si tienes una inquietud o sugerencia pudes conctactarte con la comunidad a través de los siguientes medios:
 
+- Web site: http://www.kumbiaphp.com
 - Soporte: http://www.kumbiaphp.com/blog/soporte/
 - IRC: http://www.kumbiaphp.com/blog/soporte/
