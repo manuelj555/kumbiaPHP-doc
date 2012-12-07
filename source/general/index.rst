@@ -1,10 +1,10 @@
 Temas generales
 =====
     
-    * `Controladores <https://github.com/argordmel/kumbiaPHP-doc/blob/master/source/general/controladores.rst>_` 
+    * `Controladores <controladores.rst>`_ 
     * `Modelos <modelos.rst>`_
-    * `Vistas <https://github.com/argordmel/kumbiaPHP-doc/blob/master/source/general/vistas.rst>_`
-    * `Redireccionamiento <https://github.com/argordmel/kumbiaPHP-doc/blob/master/source/general/redireccionamiento.rst>_`
-    * `Enrutamiento <https://github.com/argordmel/kumbiaPHP-doc/blob/master/source/general/enrutamiento.rst>_`
-    * `Programación Modular <https://github.com/argordmel/kumbiaPHP-doc/blob/master/source/general/programacion_modular.rst>_`
+    * `Vistas <vistas.rst>`_
+    * `Redireccionamiento <redireccionamiento.rst>`_
+    * `Enrutamiento <enrutamiento.rst>`_
+    * `Programación Modular <programacion_modular.rst>`_
    
