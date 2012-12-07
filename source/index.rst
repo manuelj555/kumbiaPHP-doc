@@ -15,6 +15,7 @@ Introducción
     * `Qué es el MVC (Model - View - Controller)` 
     * `Funcionamiento`
     * `Conocimientos básicos`
+    * `Preparando el entorno de trabajo`
 
 Tutoriales
 ---------
