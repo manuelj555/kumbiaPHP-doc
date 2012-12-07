@@ -28,10 +28,10 @@ Analizando tenemos:
 
 En el directorio ``views`` debemos agrupar nuestras vistas de la misma forma, siguiendo el ejemplo deberiamos tener una estructura como la siguiente:
 
-views
-    usuarios
-        autenticar
-            index.phml
+*|- views*
+*|---- usuarios*
+*|-------- autenticar*
+|------------ index.phml
 
 
 Otro ejemplo de la programación modular, es que podemos agrupar también los controladores utilizados para los reporte:
