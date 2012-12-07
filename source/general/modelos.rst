@@ -87,25 +87,3 @@ Veamos el siguiente ejemplo:
             $this->compras = $compras;
         }
     }
-
-
-Cambiando el pool de conexión
-----
-
-Una utilidad muy grande de KumbiaPHP es que podemos cambiar el pool de conexión si así se requiere.  Por defecto KumbiaPHP utiliza el pool según el estado: ``development`` o ``production``, pero también podemos crear conexiones adicionales.
- 
-Para cambiar el pool utilizamos la variable protegida ``$database``:
-
-.. code-block:: php
-
-    <?php
-    
-    class Cliente extends ActiveRecord {
-
-        /**
-        * Base de datos a la que se conecta
-        *
-        * @var string
-        */
-        protected $database; = 'custom';
-    }
