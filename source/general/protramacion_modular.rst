@@ -28,9 +28,9 @@ Analizando tenemos:
 
 En el directorio ``views`` debemos agrupar nuestras vistas de la misma forma, siguiendo el ejemplo deberiamos tener una estructura como la siguiente:
 
-*views*
-    *usuarios*
-        *autenticar*
+views
+    usuarios
+        autenticar
             index.phml
 
 
