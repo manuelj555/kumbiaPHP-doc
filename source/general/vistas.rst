@@ -41,8 +41,25 @@ En nuestro caso, es la forma de presentación de la vista. Dentro de cada planti
 
 Con ese llamado, renderizamos la vista del método del controlador en el template. 
 
+Si es necesario cambiar el template para una acción o controlador, lo indicamos de la siguiente manera:
 
-Si el tipo de respuesta de la vista no incluye una plantilla, tendremos que indicarlo en el controlador:
+.. code-block:: php
+
+    <?php
+        
+    class EjemploController extends AppController {
+
+        public function before_filter() {
+            View::template('otro_template');
+        }   
+
+        public function hola() {
+        
+        }
+            
+    } 
+
+Si el tipo de respuesta de la vista no incluye una plantilla:
 
 .. code-block:: php
 
