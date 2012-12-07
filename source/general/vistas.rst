@@ -77,7 +77,7 @@ Si el tipo de respuesta de la vista no incluye una plantilla:
 Vistas
 ----
 
-Como anteriormente se comentó, cada vez que se ejecuta una acción se intenta cargar una vista cuyo nombre es el mismo que el de la acción ejecutada.. Dentro de cada vista se puede llamar el método ``content()`` de la clase ``View`` para mostrar el buffer de salida de los controladores.
+Como anteriormente se comentó, cada vez que se ejecuta una acción se intenta cargar una vista cuyo nombre es el mismo que el de la acción ejecutada.
 
 En caso de querer cambiar el nombre de la vista que no esté asociada al nombre de la acción:
 
@@ -107,6 +107,7 @@ En caso no querer mostrar alguna vista:
             
     } 
 
+
 Pasando datos a la vista
 ----
 
@@ -131,4 +132,33 @@ Vista: ``view/ejemplo/saludo.phtml``
 
 .. code-block:: php
 
-    Hola <?php echo $saludo; ?>
+    Hola <?php echo $usuario; ?>
+
+
+Mostrando búffer de salida de los controladores
+----
+
+Para mostrar el contenido del buffer de salida se hace uso del método ``View::content()``, donde el contenido del búffer de salida lo constituye principalmente los ``echo`` o ``print`` que efectúe el usuario y así mismo los mensajes ``Flash``. Al invocar ``View::content()`` se muestra el contenido del búffer de salida en el lugar donde fue invocado.
+
+Ejemplo: 
+
+.. code-block:: php
+
+    <?php
+    
+    class EjemploController extends AppController {
+
+        public function hola() {
+            Flash::valid('Hola Mundo');
+        }
+            
+    } 
+
+
+Vista: ``view/ejemplo/saludo.phtml``
+
+.. code-block:: php
+
+    Saludo realizado:
+    <?php View::content() ?>
+
