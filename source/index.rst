@@ -25,10 +25,10 @@ Tutoriales
 Temas generales
 ---------
 
-    * `Controladores` 
-    * `Modelos`
-    * `Vistas`
-    * `Redireccionamiento`
-    * `Enrutamiento`
-    * `Programación Modular`
+    * `Controladores <general/controladores.rst>`_ 
+    * `Modelos <general/modelos.rst>`_
+    * `Vistas <general/vistas.rst>`_
+    * `Redireccionamiento <general/redireccionamiento.rst>`_
+    * `Enrutamiento <general/enrutamiento.rst>`_
+    * `Programación Modular <general/programacion_modular.rst>`_
    
