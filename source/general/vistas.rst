@@ -7,9 +7,9 @@ Las Vistas
 Describiendo el funcionamiento
 ----
 
-El manejador de vistas implementa el patrón de diseño de vista en dos pasos, el cual consiste en dividir el proceso de mostrar una vista en dos partes: la primera parte es utilizar una vista o ``view`` asociada a una acción del controlador para convertir los datos que vienen del modelo en lógica de presentación sin especificar ningún formato específico y la segunda es establecer el formato de presentación a través de una plantilla o ``template``.
+El manejador de vistas implementa el patrón de diseño de vista en dos pasos, el cual consiste en dividir el proceso de mostrar una vista en dos partes: la primera parte es utilizar una vista o ``view`` asociada a una acción del controlador para convertir los datos que vienen del modelo en lógica de presentación sin especificar ningún formato específico y la segunda es establecer el formato de presentación a través de una plantilla o template.
 
-Así mismo tanto las vistas de acción como las plantillas pueden utilizar vistas parciales o ``partials``. Estas vistas parciales son fragmentos de vistas que son compartidas por distintas vistas, de manera que constituyen lógica de presentación reutilizable en la aplicación. Ejemplos: menús, cabeceras, pies de página, entre otros.
+Así mismo tanto las vistas de acción como las plantillas pueden utilizar vistas parciales o partials. Estas vistas parciales son fragmentos de vistas que son compartidas por distintas vistas, de manera que constituyen lógica de presentación reutilizable en la aplicación. Ejemplos: menús, cabeceras, pies de página, entre otros.
 
 KumbiaPHP favoreciendo siempre los convenios asume los siguientes respecto a las vistas:
 
@@ -20,13 +20,11 @@ KumbiaPHP favoreciendo siempre los convenios asume los siguientes respecto a las
 - Los partials deben ubicarse en el directorio ``views/_shared/partials``.
 - Por defecto se utiliza el template ``default`` para mostrar las vistas de acción
 
-Nota: Para utilizar las variables de los controladores en las vistas, estas deben ser variables públicas ($this->nombre_variable) pues KumbiaPHP extrae esas variables y las convierte en variables normales ($nombre_variable). 
-
 
 Plantillas
 ----
 
-En nuestro caso, es la forma de presentación de la vista. Dentro de cada plantilla se debe llamar el método ``content()`` de la clase ``View así``:
+En nuestro caso, es la forma de presentación de la vista. Dentro de cada plantilla se debe llamar el método ``content()`` de la clase ``View`` así:
 
 .. code-block:: php
 
@@ -74,3 +72,63 @@ Si el tipo de respuesta de la vista no incluye una plantilla:
         }
             
     }  
+
+
+Vistas
+----
+
+Como anteriormente se comentó, cada vez que se ejecuta una acción se intenta cargar una vista cuyo nombre es el mismo que el de la acción ejecutada.. Dentro de cada vista se puede llamar el método ``content()`` de la clase ``View`` para mostrar el buffer de salida de los controladores.
+
+En caso de querer cambiar el nombre de la vista que no esté asociada al nombre de la acción:
+
+.. code-block:: php
+
+    <?php
+    
+    class EjemploController extends AppController {
+
+        public function hola() {
+            View::select('saludo'); //Se cambia la vista 'hola' por defecto a 'saludo'
+        }
+            
+    } 
+
+En caso no querer mostrar alguna vista:
+
+.. code-block:: php
+
+    <?php
+    
+    class EjemploController extends AppController {
+
+        public function hola() {
+            View::select(NULL); //Se excluye la renderización de la vista
+        }
+            
+    } 
+
+Pasando datos a la vista
+----
+
+Para utilizar las variables de los controladores en las vistas, estas deben ser variables públicas ($this->nombre_variable) pues KumbiaPHP extrae esas variables y las convierte en variables normales ($nombre_variable). 
+
+Ejemplo: 
+
+.. code-block:: php
+
+    <?php
+    
+    class EjemploController extends AppController {
+
+        public function hola() {
+            $this->usuario = 'Mundo';
+        }
+            
+    } 
+
+
+Vista: ``view/ejemplo/saludo.phtml``
+
+.. code-block:: php
+
+    Hola <?php echo $saludo; ?>
