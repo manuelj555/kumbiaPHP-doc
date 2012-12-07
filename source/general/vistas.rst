@@ -228,4 +228,70 @@ Tomemos por ejemplo esta URL:
     } 
 
 
-Vista: ``view/reporte/cliente/listar.pdf.phtml``
+Tomará la siguiente vista: ``view/reporte/clientes/listar.pdf.phtml``
+
+
+Partials
+----
+
+Los partials o vistas parciales son fragmentos de vistas que son compartidas por distintas vistas, de manera que constituyen lógica de presentación reutilizable en la aplicación. Por lo general los partials son elementos como: menús, cabecera, pie de página, formularios, entre otros.
+
+Los partials son ubicicados en la carpeta ``views/_shared/partials/`` y lo podemos agrupar por carpetas.
+
+Ejemplo de un partial:
+
+.. code-block:: php
+
+    <h1>Partial de ejemplo</h1>
+
+Partial: ``views/_shared/partials/ejemplo.phtml``
+
+
+Utilizando los partials
+----
+
+Para utilizar un partial se debe invocar el método ``View::partial()`` indicando como argumento el partial deseado y la vista parcial se mostrará en el lugar donde se invocó.
+
+Ejemplo: 
+
+.. code-block:: php
+
+    <!DOCTYPE html>
+    <html lang="es">
+        <head>   
+            <title><?php echo $page_title; ?></title>     
+        </head>
+        <body>
+            <h1>Template de Ejemplo</h1>
+
+            <?php View::partial('ejemplo'); ?>
+
+            <?php View::content(); ?>
+        </body>
+    </html>
+
+
+Cabe destacar que los partial se pueden utilizar tanto en vistas de acción, templates e incluso dentro de otros partials.
+
+
+Pasando datos a los partials
+----
+
+Para pasar datos a un partial, estos se deben indicar en un array asociativo donde cada clave con su correspondiente valor se cargarán como variables en el ámbito local del partial.
+
+Ejemplo: 
+
+.. code-block:: php
+
+    <h1>Usuario: <?php echo $usuario ?></h1>
+
+Partial: ``view/_shared/partials/usuario.phtml``
+
+.. code-block:: php
+
+    <?php View::partial('usuario', FALSE, array('usuario' => 'Ejemplo')) ?>
+    <p>
+        Este es un ejemplo
+    </p>
+
+Vista: ``views/ejemplo/prueba.phtml``
