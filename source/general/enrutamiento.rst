@@ -23,5 +23,5 @@ Con esto indicamos que todo las peticiones que se generen para el controlador ``
     //Archivo routes.ini
     / = home
 
-Si en tu dominio quieres que la página principal de tu sitio no sea el ``index``, puedes indicar con el ejemplo anterior que el controlador que ejecutará para la página principal será ``home`
+Si en tu dominio quieres que la página principal de tu sitio no sea el ``index``, puedes indicar con el ejemplo anterior que el controlador que ejecutará para la página principal será ``home``
 
