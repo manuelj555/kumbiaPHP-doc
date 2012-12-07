@@ -24,15 +24,17 @@ KumbiaPHP favoreciendo siempre los convenios asume los siguientes respecto a las
 Plantillas
 ----
 
-En nuestro caso, es la forma de presentación de la vista. Dentro de cada plantilla se debe llamar el método ``content()`` de la clase ``View`` así:
+En nuestro caso, es la forma de presentación de la vista. Dentro de cada plantilla se debe llamar el método ``content()`` de la clase ``View`` en el lugar donde se quiera mostrar la vista así:
 
 .. code-block:: php
 
     <!DOCTYPE html>
     <html lang="es">
-        <head>        
+        <head>   
+            <title>Template de Ejemplo</title>     
         </head>
         <body>
+            <h1>Template de Ejemplo</h1>
             <?php View::content(); ?>
         </body>
     </html>
@@ -71,7 +73,45 @@ Si el tipo de respuesta de la vista no incluye una plantilla:
             }   
         }
             
-    }  
+    } 
+
+Pasando datos al template
+----
+
+Para utilizar las variables de los controladores en las vistas, estas deben ser variables públicas ($this->nombre_variable) pues KumbiaPHP extrae esas variables y las convierte en variables normales ($nombre_variable). 
+
+Ejemplo: 
+
+.. code-block:: php
+
+    <?php
+    
+    class EjemploController extends AppController {
+
+        $this->page_title = 'Título de prueba';
+
+        public function hola() {
+            
+        }
+            
+    } 
+
+
+Vista: ``view/_shared/templates/mi_template.phtml``
+
+.. code-block:: php
+
+    <!DOCTYPE html>
+    <html lang="es">
+        <head>   
+            <title><?php echo $page_title; ?></title>     
+        </head>
+        <body>
+            <h1>Template de Ejemplo</h1>
+            <?php View::content(); ?>
+        </body>
+    </html>
+ 
 
 
 Vistas
@@ -162,3 +202,30 @@ Vista: ``view/ejemplo/saludo.phtml``
     Saludo realizado:
     <?php View::content() ?>
 
+
+Indicando el tipo de respuesta
+----
+
+Ei el tipo de respuesta es un json, pdf, xls, etc podemos indicarlo de la siguiente manera sin incluir el template:
+
+Ejemplo: 
+
+
+Tomemos por ejemplo esta URL:
+
+``http://www.dominio.com/reporte/clientes/listar/pdf/``
+
+.. code-block:: php
+
+    <?php
+    
+    class ClienteController extends AppController {
+
+        public function listar($formato) {
+            View::response($formato);
+        }
+            
+    } 
+
+
+Vista: ``view/reporte/cliente/listar.pdf.phtml``
