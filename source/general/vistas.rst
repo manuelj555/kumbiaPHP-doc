@@ -168,7 +168,7 @@ Ejemplo:
     } 
 
 
-Vista: ``view/ejemplo/saludo.phtml``
+Vista: ``view/ejemplo/hola.phtml``
 
 .. code-block:: php
 
@@ -195,7 +195,7 @@ Ejemplo:
     } 
 
 
-Vista: ``view/ejemplo/saludo.phtml``
+Vista: ``view/ejemplo/hola.phtml``
 
 .. code-block:: php
 
@@ -206,7 +206,7 @@ Vista: ``view/ejemplo/saludo.phtml``
 Indicando el tipo de respuesta
 ----
 
-Ei el tipo de respuesta es un json, pdf, xls, etc podemos indicarlo de la siguiente manera sin incluir el template:
+Si el tipo de respuesta es un json, pdf, xls, etc podemos indicarlo de la siguiente manera sin incluir el template:
 
 Ejemplo: 
 
@@ -259,7 +259,7 @@ Ejemplo:
     <!DOCTYPE html>
     <html lang="es">
         <head>   
-            <title><?php echo $page_title; ?></title>     
+            <title>Template de Ejemplo</title>   
         </head>
         <body>
             <h1>Template de Ejemplo</h1>
@@ -290,8 +290,7 @@ Partial: ``view/_shared/partials/usuario.phtml``
 .. code-block:: php
 
     <?php View::partial('usuario', FALSE, array('usuario' => 'Ejemplo')) ?>
-    <p>
-        Este es un ejemplo
-    </p>
+    
+    <p>Este es un ejemplo </p>
 
 Vista: ``views/ejemplo/prueba.phtml``
